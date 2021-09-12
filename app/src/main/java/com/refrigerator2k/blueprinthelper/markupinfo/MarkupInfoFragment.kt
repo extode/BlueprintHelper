@@ -18,7 +18,7 @@ class MarkupInfoFragment : Fragment() {
         val binding = FragmentMarkupInfoBinding.inflate(inflater, container, false)
         val args = MarkupInfoFragmentArgs.fromBundle(requireArguments())
 
-        val viewModelFactory = MarkupInfoViewModelFactory(args.text, args.sheetWidth, args.markupWidth)
+        val viewModelFactory = MarkupInfoViewModelFactory(args.text, args.areaWidth, args.markupWidth)
         val viewModel = ViewModelProvider(this, viewModelFactory).get(MarkupInfoViewModel::class.java)
 
         binding.lifecycleOwner = viewLifecycleOwner

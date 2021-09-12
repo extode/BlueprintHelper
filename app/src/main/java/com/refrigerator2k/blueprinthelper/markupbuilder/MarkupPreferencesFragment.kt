@@ -20,7 +20,7 @@ class MarkupPreferencesFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_markup_preferences, container, false)
         val toMarkupButton = view.findViewById<Button>(R.id.toMarkupButton)
         val lineForMarkupText = view.findViewById<TextView>(R.id.lineForMarkupText)
-        val sheetWidthText = view.findViewById<TextView>(R.id.paperWidthText)
+        val sheetWidthText = view.findViewById<TextView>(R.id.areaWidthText)
 
         toMarkupButton.setOnClickListener {
             (activity as MainActivity).hideKeyboard()

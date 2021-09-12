@@ -7,11 +7,15 @@ import com.refrigerator2k.blueprinthelper.FontProvider
 import com.refrigerator2k.blueprinthelper.LetterWidth
 
 class MarkupBuilderViewModel : ViewModel() {
+    private var _text = ""
+
     private val _markup = MutableLiveData<List<Letter>>()
     val markup: LiveData<List<Letter>> = _markup
 
     private val _markupWidth = MutableLiveData<Float>()
     val markupWidth: LiveData<Float> = _markupWidth
+
+    private var _areaWidth = 0.0f
 
     private val _noSuchLetterEvent = MutableLiveData<Char>()
     val noSuchLetterEvent: LiveData<Char> = _noSuchLetterEvent
@@ -19,7 +23,14 @@ class MarkupBuilderViewModel : ViewModel() {
     private val _showMarkupInfoEvent = MutableLiveData<Boolean>(false)
     val showMarkupInfoEvent: LiveData<Boolean> = _showMarkupInfoEvent
 
+    private val _markupDoesNotFitToTheAreaEvent = MutableLiveData<Boolean>(false)
+    val markupDoesNotFitToTheAreaEvent: LiveData<Boolean> = _markupDoesNotFitToTheAreaEvent
+
     fun setText(text: String) {
+        if (_text == text)
+            return
+
+        _text = text
         val letters = mutableListOf<Letter>()
 
         var offset = 0.0
@@ -43,6 +54,14 @@ class MarkupBuilderViewModel : ViewModel() {
 
         _markupWidth.value = (offset - letterSpacing).toFloat()
         _markup.value = letters
+
+        if (_markupWidth.value!! > _areaWidth) {
+            _markupDoesNotFitToTheAreaEvent.value = true
+        }
+    }
+
+    fun setAreaWidth(w: Float) {
+        _areaWidth = w
     }
 
     fun infoPressed() {
@@ -55,5 +74,9 @@ class MarkupBuilderViewModel : ViewModel() {
 
     fun showMarkupInfoEventHandled() {
         _showMarkupInfoEvent.value = false
+    }
+
+    fun markupDoesNotFitToTheAreaEventHandled() {
+        _markupDoesNotFitToTheAreaEvent.value = false
     }
 }

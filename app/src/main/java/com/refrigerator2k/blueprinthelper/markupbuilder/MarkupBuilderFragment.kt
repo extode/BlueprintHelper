@@ -1,5 +1,6 @@
 package com.refrigerator2k.blueprinthelper.markupbuilder
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
@@ -13,7 +14,7 @@ class MarkupBuilderFragment : Fragment() {
     private lateinit var viewModel: MarkupBuilderViewModel
 
     private lateinit var text: String
-    private var sheetWidth: Float = 0.0f
+    private var areaWidth: Float = 0.0f
     private var markupWidth: Float = 0.0f
 
     override fun onCreateView(
@@ -26,12 +27,13 @@ class MarkupBuilderFragment : Fragment() {
 
         val args = MarkupBuilderFragmentArgs.fromBundle(requireArguments())
         text = args.text
-        sheetWidth = args.sheetWidth
+        areaWidth = args.areaWidth
 
         val adapter = LettersAdapter(emptyList())
         recyclerView.adapter = adapter
 
         viewModel = ViewModelProvider(this).get(MarkupBuilderViewModel::class.java)
+        viewModel.setAreaWidth(areaWidth)
         viewModel.markup.observe(viewLifecycleOwner, {
             adapter.items = ArrayList(it)
         })
@@ -52,9 +54,21 @@ class MarkupBuilderFragment : Fragment() {
             if (it) {
                 findNavController().navigate(
                     MarkupBuilderFragmentDirections
-                        .actionMarkupBuilderFragmentToMarkupInfoFragment(text, sheetWidth, markupWidth)
+                        .actionMarkupBuilderFragmentToMarkupInfoFragment(text, areaWidth, markupWidth)
                 )
                 viewModel.showMarkupInfoEventHandled()
+            }
+        })
+
+        viewModel.markupDoesNotFitToTheAreaEvent.observe(viewLifecycleOwner, {
+            if (it) {
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.warning))
+                    .setMessage(getString(R.string.markup_does_not_fit_to_the_area))
+                    .setPositiveButton(getString(android.R.string.ok)) { _, _ -> }
+                    .create().show()
+
+                viewModel.markupDoesNotFitToTheAreaEventHandled()
             }
         })
 

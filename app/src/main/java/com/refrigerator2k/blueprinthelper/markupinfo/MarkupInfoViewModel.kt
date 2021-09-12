@@ -11,8 +11,8 @@ class MarkupInfoViewModel(text: String, sheetWidth: Float, markupWidth: Float) :
     private val _charsCount = MutableLiveData<Int>(text.length)
     val charsCount: LiveData<Int> = _charsCount
 
-    private val _sheetWidth = MutableLiveData<Float>(sheetWidth)
-    val sheetWidth: LiveData<Float> = _sheetWidth
+    private val _areaWidth = MutableLiveData<Float>(sheetWidth)
+    val areaWidth: LiveData<Float> = _areaWidth
 
     private val _markupWidth = MutableLiveData<Float>(markupWidth)
     val markupWidth: LiveData<Float> = _markupWidth

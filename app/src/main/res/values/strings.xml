@@ -18,10 +18,11 @@
     <string name="markup_width">Ширина разметки</string>
     <string name="characters_count">Количество символов</string>
     <string name="center_align">Выравнивание по центру</string>
-    <string name="margin_from_the_edge_of_the_sheet">Отступ от края листа</string>
+    <string name="margin_from_the_edge">Отступ от края</string>
     <string name="about_markup">О разметке</string>
     <string name="markupPreferences">Параметры разметки</string>
     <string name="processed_text">Обработанный текст</string>
-    <string name="sheet_width">Ширина листа</string>
     <string name="area_width">Ширина области</string>
+    <string name="warning">Предупреждение</string>
+    <string name="markup_does_not_fit_to_the_area">Разметка не вместится в заданную область</string>
 </resources>

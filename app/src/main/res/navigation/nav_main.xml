@@ -36,7 +36,7 @@
             android:id="@+id/action_markupBuilderFragment_to_markupInfoFragment"
             app:destination="@id/markupInfoMenuItem" />
         <argument
-            android:name="sheetWidth"
+            android:name="areaWidth"
             app:argType="float" />
     </fragment>
     <fragment
@@ -47,7 +47,7 @@
             android:name="text"
             app:argType="string" />
         <argument
-            android:name="sheetWidth"
+            android:name="areaWidth"
             app:argType="float" />
         <argument
             android:name="markupWidth"
