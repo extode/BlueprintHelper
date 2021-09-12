@@ -23,7 +23,7 @@
             android:id="@+id/paperWidthText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/paper_width"
+            android:hint="@string/area_width"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
