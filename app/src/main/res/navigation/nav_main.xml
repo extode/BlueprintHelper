@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/fontCalculatorFragment"
+        android:name="com.refrigerator2k.blueprinthelper.fontcalculator.FontCalculatorFragment"
+        android:label="@string/font"
+        tools:layout="@layout/fragment_font_calculator" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.refrigerator2k.blueprinthelper.MainFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_main"/>
+    <fragment
+        android:id="@+id/markupPreferencesFragment"
+        android:name="com.refrigerator2k.blueprinthelper.markupbuilder.MarkupPreferencesFragment"
+        android:label="@string/markupPreferences"
+        tools:layout="@layout/fragment_markup_preferences">
+        <action
+            android:id="@+id/action_markupPreferencesFragment_to_markupBuilderFragment"
+            app:destination="@id/markupBuilderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/markupBuilderFragment"
+        android:name="com.refrigerator2k.blueprinthelper.markupbuilder.MarkupBuilderFragment"
+        android:label="@string/markup"
+        tools:layout="@layout/fragment_markup_builder">
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_markupBuilderFragment_to_markupInfoFragment"
+            app:destination="@id/markupInfoMenuItem" />
+        <argument
+            android:name="sheetWidth"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/markupInfoMenuItem"
+        android:name="com.refrigerator2k.blueprinthelper.markupinfo.MarkupInfoFragment"
+        android:label="@string/about_markup">
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="sheetWidth"
+            app:argType="float" />
+        <argument
+            android:name="markupWidth"
+            app:argType="float" />
+    </fragment>
+</navigation>

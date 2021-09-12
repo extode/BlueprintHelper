@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">BlueprintHelper</string>
+    <string name="font_size">Размер шрифта</string>
+    <string name="uppercase_letter_height">Высота прописных букв</string>
+    <string name="lowercase_letter_height">Высота строчных букв</string>
+    <string name="letter_spacing">Расстояние между буквами</string>
+    <string name="min_line_height">Минимальный шаг строк</string>
+    <string name="min_word_spacing">Мин. расстояние между словами</string>
+    <string name="font_line_weight">Толщина линии шрифта</string>
+    <string name="preference_file_key_default">com.refrigerator2k.blueprinthelper.DEFAULT_SHARED_PREFS</string>
+    <string name="preference_font_size_str">font_size_str</string>
+    <string name="font">Шрифт</string>
+    <string name="markup">Разметка</string>
+    <string name="title">Главная</string>
+    <string name="no_such_character_error_format">Символ \"%s\" ещё не зарегистрирован в приложении</string>
+    <string name="paper_width">Ширина листа</string>
+    <string name="line_for_the_markup">Строка для разметки</string>
+    <string name="make_the_markup">Разметить</string>
+    <string name="markup_width">Ширина разметки:</string>
+    <string name="characters_count">Количество символов:</string>
+    <string name="center_align">Выравнивание по центру</string>
+    <string name="margin_from_the_edge_of_the_sheet">Отступ от края листа:</string>
+    <string name="about_markup">О разметке</string>
+    <string name="markupPreferences">Параметры разметки</string>
+    <string name="processed_text">Обработанный текст:</string>
+    <string name="sheet_width">Ширина листа:</string>
+</resources>
