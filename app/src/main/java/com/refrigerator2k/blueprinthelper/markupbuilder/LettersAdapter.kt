@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.refrigerator2k.blueprinthelper.TypefaceManagerProvider
 import com.refrigerator2k.blueprinthelper.R
 
 class LettersAdapter(items: List<Letter>) : RecyclerView.Adapter<LettersAdapter.ViewHolder>() {
@@ -30,6 +31,10 @@ class LettersAdapter(items: List<Letter>) : RecyclerView.Adapter<LettersAdapter.
         val letterText: TextView = letterItemView.findViewById(R.id.letterText)
         val startLetterText: TextView = letterItemView.findViewById(R.id.startLetterText)
         val endLetterText: TextView = letterItemView.findViewById(R.id.endLetterText)
+
+        init {
+            letterText.typeface = TypefaceManagerProvider.instance.getTypeface("fonts/draw-type-b-italic.ttf")
+        }
 
         fun setLetter(letter: Letter) {
             letterText.text = letter.letter.toString()

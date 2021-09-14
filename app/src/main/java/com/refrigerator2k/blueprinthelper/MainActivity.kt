@@ -6,7 +6,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
@@ -28,9 +27,6 @@ class MainActivity : AppCompatActivity() {
         prefs = getSharedPreferences(getString(R.string.preference_file_key_default), MODE_PRIVATE)
         keyFontSize = getString(R.string.preference_font_size_str)
 
-        setupFont(prefs)
-        LetterWidth.init()
-
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
@@ -42,6 +38,12 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(navView, navController)
 
         imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+
+        if (savedInstanceState == null) {
+            setupFont(prefs)
+            LetterWidth.init()
+            TypefaceManagerProvider.init(assets)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
