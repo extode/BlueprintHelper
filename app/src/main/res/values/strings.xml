@@ -25,4 +25,8 @@
     <string name="area_width">Ширина области</string>
     <string name="warning">Предупреждение</string>
     <string name="markup_does_not_fit_to_the_area">Разметка не вместится в заданную область</string>
+    <string name="radius">Радиус</string>
+    <string name="angles_count">Кол-во углов</string>
+    <string name="side_length">Длина стороны</string>
+    <string name="polygons">Многоугольники</string>
 </resources>

@@ -6,4 +6,7 @@
     <item
         android:id="@+id/markupPreferencesFragment"
         android:title="@string/markup" />
+    <item
+        android:id="@+id/polygonCalculatorFragment"
+        android:title="@string/polygons" />
 </menu>

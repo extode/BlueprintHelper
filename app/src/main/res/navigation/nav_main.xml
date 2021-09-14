@@ -53,4 +53,8 @@
             android:name="markupWidth"
             app:argType="float" />
     </fragment>
+    <fragment
+        android:id="@+id/polygonCalculatorFragment"
+        android:name="com.refrigerator2k.blueprinthelper.polygoncalculator.PolygonCalculator"
+        android:label="@string/polygons" />
 </navigation>

@@ -52,147 +52,88 @@
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroup"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </HorizontalScrollView>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+            android:id="@+id/parameter1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/uppercase_letter_height"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipHScrollView" />
-
-        <TextView
-            android:id="@+id/uppercaseLetterHeightText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:gravity="end"
-            android:text="@{String.valueOf(viewModel.fontProperties.uppercaseHeight)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="10" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chipHScrollView"
+            app:paramName="@string/uppercase_letter_height"
+            app:paramValue="@{String.valueOf(viewModel.fontProperties.uppercaseHeight)}" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+            android:id="@+id/parameter2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/lowercase_letter_height"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/parameter1"
+            app:paramName="@string/lowercase_letter_height"
+            app:paramValue="@{String.valueOf(viewModel.fontProperties.lowercaseHeight)}" />
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+            android:id="@+id/parameter3"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/letter_spacing"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/parameter2"
+            app:paramName="@string/letter_spacing"
+            app:paramValue="@{String.valueOf(viewModel.fontProperties.letterSpacing)}" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+            android:id="@+id/parameter4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/min_line_height"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@id/parameter3"
+            app:paramName="@string/min_line_height"
+            app:paramValue="@{String.valueOf(viewModel.fontProperties.minLineHeight)}"/>
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
+        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+            android:id="@+id/parameter5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/min_word_spacing"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/parameter4"
+            app:paramName="@string/min_word_spacing"
+            app:paramValue="@{String.valueOf(viewModel.fontProperties.minWordSpacing)}" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
+        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+            android:id="@+id/parameter6"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="@string/font_line_weight"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <TextView
-            android:id="@+id/lowercaseLetterHeightText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:gravity="end"
-            android:text="@{String.valueOf(viewModel.fontProperties.lowercaseHeight)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="7" />
-
-        <TextView
-            android:id="@+id/letterSpacingText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:gravity="end"
-            android:text="@{String.valueOf(viewModel.fontProperties.letterSpacing)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="2" />
-
-        <TextView
-            android:id="@+id/minLineHeightText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:gravity="end"
-            android:text="@{String.valueOf(viewModel.fontProperties.minLineHeight)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="17" />
-
-        <TextView
-            android:id="@+id/minWordSpacingText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:gravity="end"
-            android:text="@{String.valueOf(viewModel.fontProperties.minWordSpacing)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="6" />
-
-        <TextView
-            android:id="@+id/lineWeightText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:gravity="end"
-            android:text="@{String.valueOf(viewModel.fontProperties.fontWeight)}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="1" />
+            app:layout_constraintTop_toBottomOf="@id/parameter5"
+            app:paramName="@string/font_line_weight"
+            app:paramValue="@{String.valueOf(viewModel.fontProperties.fontWeight)}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
