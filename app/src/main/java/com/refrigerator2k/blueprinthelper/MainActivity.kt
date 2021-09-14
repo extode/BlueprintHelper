@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupFont(prefs: SharedPreferences) {
-        val fontSize = prefs.getFloat(keyFontSize, 0.0f).toDouble()
+        val fontSize = prefs.getFloat(keyFontSize, 10.0f).toDouble()
         val fontCalculator = FontCalculatorFactory.create(0)
         val fontProperties = fontCalculator.calculate(fontSize)
         FontProvider.font.properties = fontProperties
