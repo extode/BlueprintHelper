@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlueprintHelper</string>
+    <string name="app_name">Blueprint Helper</string>
     <string name="font_size">Размер шрифта</string>
     <string name="uppercase_letter_height">Высота прописных букв</string>
     <string name="lowercase_letter_height">Высота строчных букв</string>
@@ -29,4 +29,5 @@
     <string name="angles_count">Кол-во углов</string>
     <string name="side_length">Длина стороны</string>
     <string name="polygons">Многоугольники</string>
+    <string name="welcome">Добро пожаловать!</string>
 </resources>
