@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.refrigerator2k.blueprinthelper.TypefaceManagerProvider
 import com.refrigerator2k.blueprinthelper.R
+import com.refrigerator2k.blueprinthelper.round2
 
 class LettersAdapter(items: List<Letter>) : RecyclerView.Adapter<LettersAdapter.ViewHolder>() {
     var items = ArrayList(items)
@@ -38,8 +39,8 @@ class LettersAdapter(items: List<Letter>) : RecyclerView.Adapter<LettersAdapter.
 
         fun setLetter(letter: Letter) {
             letterText.text = letter.letter.toString()
-            startLetterText.text = "${letter.start} мм."
-            endLetterText.text = "${letter.end} мм."
+            startLetterText.text = "${round2(letter.start)} мм."
+            endLetterText.text = "${round2(letter.end)} мм."
         }
     }
 }
