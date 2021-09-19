@@ -81,7 +81,13 @@ class FontCalculatorViewModel : ViewModel() {
     }
 
     private fun selectFontWithIndex(index: Int) {
-        _unselectedFontIndex.value = _selectedFontIndex.value
-        _selectedFontIndex.value = index
+        if (_selectedFontIndex.value != index) {
+            _unselectedFontIndex.value = _selectedFontIndex.value
+            _selectedFontIndex.value = index
+        }
+    }
+
+    fun deselectionHandled() {
+        _unselectedFontIndex.value = NO_FONT_SELECTED
     }
 }

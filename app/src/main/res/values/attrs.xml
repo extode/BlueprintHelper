@@ -4,4 +4,9 @@
         <attr name="paramName" format="string" />
         <attr name="paramValue" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="SectionView">
+        <attr name="sv_drawable" format="reference" />
+        <attr name="sv_title" format="string" />
+    </declare-styleable>
 </resources>

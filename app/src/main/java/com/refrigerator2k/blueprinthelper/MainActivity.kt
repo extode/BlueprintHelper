@@ -12,7 +12,6 @@ import com.google.android.material.navigation.NavigationView
 import com.refrigerator2k.blueprinthelper.fontcalculator.FontCalculatorFactory
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var drawerLayout: DrawerLayout
     private lateinit var navController: NavController
 
     private lateinit var prefs: SharedPreferences
@@ -31,11 +30,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        NavigationUI.setupWithNavController(navView, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController)
 
         imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 
@@ -48,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         hideKeyboard()
-        return navController.navigateUp(drawerLayout) || super.onSupportNavigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     private fun setupFont(prefs: SharedPreferences) {

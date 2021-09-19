@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fontcalculator.FontCalculatorFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-            name="viewModel"
+            name="fontCalculatorViewModel"
             type="com.refrigerator2k.blueprinthelper.fontcalculator.FontCalculatorViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/font_text_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:hint="@string/font_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:suffixText="мм.">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -41,13 +33,8 @@
             android:id="@+id/chipHScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:scrollbars="none"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/font_text_layout">
+            android:scrollbars="none">
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroup"
@@ -58,82 +45,51 @@
 
         <com.refrigerator2k.blueprinthelper.parameter.TextParameter
             android:id="@+id/parameter1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="end"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipHScrollView"
             app:paramName="@string/uppercase_letter_height"
-            app:paramValue="@{String.valueOf(viewModel.fontProperties.uppercaseHeight)}" />
+            app:paramValue="@{String.valueOf(fontCalculatorViewModel.fontProperties.uppercaseHeight)}" />
 
         <com.refrigerator2k.blueprinthelper.parameter.TextParameter
             android:id="@+id/parameter2"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parameter1"
             app:paramName="@string/lowercase_letter_height"
-            app:paramValue="@{String.valueOf(viewModel.fontProperties.lowercaseHeight)}" />
+            app:paramValue="@{String.valueOf(fontCalculatorViewModel.fontProperties.lowercaseHeight)}" />
 
         <com.refrigerator2k.blueprinthelper.parameter.TextParameter
             android:id="@+id/parameter3"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parameter2"
             app:paramName="@string/letter_spacing"
-            app:paramValue="@{String.valueOf(viewModel.fontProperties.letterSpacing)}" />
+            app:paramValue="@{String.valueOf(fontCalculatorViewModel.fontProperties.letterSpacing)}" />
 
         <com.refrigerator2k.blueprinthelper.parameter.TextParameter
             android:id="@+id/parameter4"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/parameter3"
             app:paramName="@string/min_line_height"
-            app:paramValue="@{String.valueOf(viewModel.fontProperties.minLineHeight)}"/>
+            app:paramValue="@{String.valueOf(fontCalculatorViewModel.fontProperties.minLineHeight)}" />
 
         <com.refrigerator2k.blueprinthelper.parameter.TextParameter
             android:id="@+id/parameter5"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parameter4"
             app:paramName="@string/min_word_spacing"
-            app:paramValue="@{String.valueOf(viewModel.fontProperties.minWordSpacing)}" />
+            app:paramValue="@{String.valueOf(fontCalculatorViewModel.fontProperties.minWordSpacing)}" />
 
         <com.refrigerator2k.blueprinthelper.parameter.TextParameter
             android:id="@+id/parameter6"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/parameter5"
             app:paramName="@string/font_line_weight"
-            app:paramValue="@{String.valueOf(viewModel.fontProperties.fontWeight)}" />
+            app:paramValue="@{String.valueOf(fontCalculatorViewModel.fontProperties.fontWeight)}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>
