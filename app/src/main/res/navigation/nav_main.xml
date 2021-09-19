@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/mainFragment2">
+    app:startDestination="@id/polygonTest">
 
     <fragment
         android:id="@+id/markupBuilderFragment"
@@ -51,4 +51,9 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/polygonTest"
+        android:name="com.refrigerator2k.blueprinthelper.PolygonTest"
+        android:label="fragment_polygon_test"
+        tools:layout="@layout/fragment_polygon_test" />
 </navigation>
