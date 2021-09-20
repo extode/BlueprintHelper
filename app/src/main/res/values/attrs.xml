@@ -9,4 +9,12 @@
         <attr name="sv_drawable" format="reference" />
         <attr name="sv_title" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="PolygonView">
+        <attr name="pv_polygon_color" format="color"/>
+        <attr name="pv_polygon_stroke_width" format="dimension" />
+        <attr name="pv_circle_color" format="color" />
+        <attr name="pv_circle_stroke_width" format="dimension" />
+        <attr name="pv_vertices_count" format="integer" />
+    </declare-styleable>
 </resources>

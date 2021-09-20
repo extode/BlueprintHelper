@@ -2,33 +2,71 @@ package com.refrigerator2k.blueprinthelper.polygoncalculator
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.refrigerator2k.blueprinthelper.round2
+import com.refrigerator2k.blueprinthelper.toPrettyString
 import kotlin.math.PI
 import kotlin.math.sin
 
 class PolygonCalculatorViewModel : ViewModel() {
+    companion object {
+        private const val INT_NULL = -1
+        private const val DOUBLE_NULL = Double.NEGATIVE_INFINITY
+    }
 
-    private var _radius: Double = 0.0
-    private var _anglesCount: Int = 0
+    private val _radius = MutableLiveData<Double>(DOUBLE_NULL)
+    val radius: LiveData<Double> = _radius
 
-    private val _sideLength = MutableLiveData<Double>(0.0)
+    val radiusStr: String
+        get() {
+            return if (_radius.value != DOUBLE_NULL) {
+                _radius.value!!.toPrettyString()
+            }
+            else
+                ""
+        }
+
+    private val _anglesCount = MutableLiveData<Int>(INT_NULL)
+    val anglesCount: LiveData<Int> = _anglesCount
+
+    val anglesCountStr: String
+        get() {
+            return if (_anglesCount.value != INT_NULL)
+                _anglesCount.value.toString()
+            else
+                ""
+        }
+
+    private val _sideLength = MutableLiveData<Double>(DOUBLE_NULL)
     val sideLength: LiveData<Double> = _sideLength
 
-    fun setRadius(radius: Double) {
-        _radius = radius
+    val sideLengthStr: LiveData<String> = Transformations.map(_sideLength) {
+        if (it != DOUBLE_NULL)
+            round2(it).toPrettyString()
+        else
+            "0"
+    }
+
+    fun setRadius(value: String) {
+        _radius.value = value.toDoubleOrNull() ?: 0.0
         calculate()
     }
 
     fun setAnglesCount(anglesCount: Int) {
-        _anglesCount = anglesCount
+        _anglesCount.value = anglesCount
         calculate()
     }
 
     private fun calculate() {
-        if (_anglesCount > 0) {
-            val angleR = (PI / 180.0) * (180 / _anglesCount)
-            _sideLength.value = round2(2 * _radius * sin(angleR))
+        if (radius.value == DOUBLE_NULL || _anglesCount.value == INT_NULL)
+            return
+
+        val n = _anglesCount.value!!
+        val radius = this.radius.value!!
+        if (n > 0) {
+            val angleR = PI / n
+            _sideLength.value = round2(2.0 * radius * sin(angleR))
         }
     }
 }

@@ -4,6 +4,9 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
@@ -18,6 +21,15 @@ class SectionView @JvmOverloads constructor(context: Context, attrs: AttributeSe
     }
 
     private val titleText: TextView
+    private val icon: ImageView
+    private val nextButton: ImageButton
+
+    fun setOnExpandAction(onExpand: (() -> Unit)) {
+        nextButton.visibility = View.VISIBLE
+        nextButton.setOnClickListener {
+            onExpand()
+        }
+    }
 
     var title: String
         get() = titleText.text.toString()
@@ -30,6 +42,8 @@ class SectionView @JvmOverloads constructor(context: Context, attrs: AttributeSe
         LayoutInflater.from(context).inflate(R.layout.section_view, this)
 
         titleText = findViewById(R.id.section_view_title)
+        icon = findViewById(R.id.section_view_icon)
+        nextButton = findViewById(R.id.section_view_button_next)
 
         if (attrs != null) {
             val ta = context.obtainStyledAttributes(attrs, R.styleable.SectionView)
@@ -46,10 +60,10 @@ class SectionView @JvmOverloads constructor(context: Context, attrs: AttributeSe
 
 
     fun setDrawable(@DrawableRes drawableRes: Int) {
-        titleText.setCompoundDrawables(ContextCompat.getDrawable(context, drawableRes), null, null, null)
+        icon.setImageDrawable(ContextCompat.getDrawable(context, drawableRes))
     }
 
     fun setDrawable(drawable: Drawable?) {
-        titleText.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+        icon.setImageDrawable(drawable)
     }
 }

@@ -10,7 +10,7 @@ import com.refrigerator2k.blueprinthelper.MainFragmentDirections
 import com.refrigerator2k.blueprinthelper.R
 import com.refrigerator2k.blueprinthelper.SectionController
 
-class MarkupPreferencesSectionController : SectionController {
+class MarkupPreferencesSectionController : SectionController() {
     override fun onSetup(owner: Fragment) {
         val view = owner.requireView().findViewById(R.id.markupPreferencesSection) as View
         val toMarkupButton = view.findViewById<Button>(R.id.toMarkupButton)

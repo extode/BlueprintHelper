@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/polygonTest">
+    app:startDestination="@id/mainFragment2">
 
     <fragment
         android:id="@+id/markupBuilderFragment"
@@ -27,7 +27,8 @@
     <fragment
         android:id="@+id/markupInfoMenuItem"
         android:name="com.refrigerator2k.blueprinthelper.markupinfo.MarkupInfoFragment"
-        android:label="@string/about_markup">
+        android:label="@string/about_markup"
+        tools:layout="@layout/fragment_markup_info">
         <argument
             android:name="text"
             app:argType="string" />
@@ -50,10 +51,17 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment2_to_polygonCalculatorFragment"
+            app:destination="@id/polygonCalculatorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/polygonTest"
-        android:name="com.refrigerator2k.blueprinthelper.PolygonTest"
-        android:label="fragment_polygon_test"
-        tools:layout="@layout/fragment_polygon_test" />
+        android:id="@+id/polygonCalculatorFragment"
+        android:name="com.refrigerator2k.blueprinthelper.polygoncalculator.PolygonCalculatorFragment"
+        android:label="PolygonCalculatorFragment"
+        tools:layout="@layout/fragment_polygon_calculator" />
 </navigation>

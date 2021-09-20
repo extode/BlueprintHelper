@@ -11,6 +11,12 @@ import com.refrigerator2k.blueprinthelper.markupbuilder.MarkupPreferencesSection
 import com.refrigerator2k.blueprinthelper.polygoncalculator.PolygonCalculatorSectionController
 
 class MainFragment : Fragment() {
+    private val sectionControllers = arrayListOf(
+        FontCalculatorSectionController(),
+        MarkupPreferencesSectionController(),
+        PolygonCalculatorSectionController()
+    )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,10 +26,10 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val controllers = SectionControllersProvider.get()
-        for (controller in controllers) {
+        super.onViewCreated(view, savedInstanceState)
+
+        for (controller in sectionControllers) {
             controller.onSetup(this@MainFragment)
         }
-        super.onViewCreated(view, savedInstanceState)
     }
 }

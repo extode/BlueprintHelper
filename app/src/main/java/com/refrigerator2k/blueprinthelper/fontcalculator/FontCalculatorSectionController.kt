@@ -15,7 +15,7 @@ import com.refrigerator2k.blueprinthelper.R
 import com.refrigerator2k.blueprinthelper.SectionController
 import com.refrigerator2k.blueprinthelper.databinding.FragmentFontCalculatorBinding
 
-class FontCalculatorSectionController : SectionController {
+class FontCalculatorSectionController : SectionController() {
     override fun onSetup(owner: Fragment) {
         Log.d("FontCalculatorSC", "onSetup")
         val view = owner.requireView().findViewById<LinearLayout>(R.id.fontCalculatorSection)

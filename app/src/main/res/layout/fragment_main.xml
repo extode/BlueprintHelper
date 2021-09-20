@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    tools:context=".MainFragment"
+    android:id="@+id/scrollView">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,6 +39,7 @@
         </com.refrigerator2k.blueprinthelper.ui.SectionView>
 
         <com.refrigerator2k.blueprinthelper.ui.SectionView
+            android:id="@+id/polygonCalculatorSectionView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -45,7 +47,7 @@
             app:sv_drawable="@drawable/ic_polygons"
             app:sv_title="@string/polygons">
 
-            <include android:id="@+id/polygonCalculatorSection" layout="@layout/fragment_polygon_calculator" />
+            <include android:id="@+id/polygonCalculatorSectionContent" layout="@layout/fragment_polygon_calculator" />
 
         </com.refrigerator2k.blueprinthelper.ui.SectionView>
     </LinearLayout>
