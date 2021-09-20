@@ -1,5 +1,6 @@
 package com.refrigerator2k.blueprinthelper.polygoncalculator
 
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,15 +27,20 @@ class PolygonCalculatorSectionController : SectionController() {
         binding.radiusText.isSaveEnabled = false
         binding.anglesCountText.isSaveEnabled = false
 
-        binding.radiusText.setText(viewModel.radiusStr)
-        binding.anglesCountText.setText(viewModel.anglesCountStr)
-
         binding.radiusText.addTextChangedListener(simpleTextWatcher {
             viewModel.setRadius(it.toString())
         })
 
         binding.anglesCountText.addTextChangedListener(simpleTextWatcher {
             viewModel.setAnglesCount(it.toString().toIntOrNull() ?: 0)
+        })
+
+        viewModel.tooMuchVerticesErrorEvent.observe(owner.viewLifecycleOwner, {
+            if (it == true) {
+                binding.anglesCountLayout.error = owner.getString(R.string.max_32)
+            } else {
+                binding.anglesCountLayout.error = null
+            }
         })
 
         if (isExpanded) {
@@ -51,5 +57,8 @@ class PolygonCalculatorSectionController : SectionController() {
                 )
             }
         }
+
+        binding.radiusText.setText(viewModel.radiusStr)
+        binding.anglesCountText.setText(viewModel.anglesCountStr)
     }
 }

@@ -48,14 +48,22 @@ class PolygonCalculatorViewModel : ViewModel() {
             "0"
     }
 
+    private val _tooMuchVerticesErrorEvent = MutableLiveData<Boolean>(false)
+    val tooMuchVerticesErrorEvent: LiveData<Boolean> = _tooMuchVerticesErrorEvent
+
     fun setRadius(value: String) {
         _radius.value = value.toDoubleOrNull() ?: 0.0
         calculate()
     }
 
     fun setAnglesCount(anglesCount: Int) {
-        _anglesCount.value = anglesCount
-        calculate()
+        if (anglesCount < 32) {
+            _tooMuchVerticesErrorEvent.setValueIfChanged(false)
+            _anglesCount.value = anglesCount
+            calculate()
+        } else {
+            _tooMuchVerticesErrorEvent.setValueIfChanged(true)
+        }
     }
 
     private fun calculate() {
@@ -68,5 +76,10 @@ class PolygonCalculatorViewModel : ViewModel() {
             val angleR = PI / n
             _sideLength.value = round2(2.0 * radius * sin(angleR))
         }
+    }
+
+    private fun <T> MutableLiveData<T>.setValueIfChanged(newValue: T) {
+        if (value != newValue)
+            value = newValue
     }
 }

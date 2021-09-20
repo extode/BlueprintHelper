@@ -39,13 +39,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
+                android:id="@+id/anglesCountLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/angles_count"
-                android:paddingStart="4dp">
+                android:paddingStart="4dp"
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/anglesCountText"
@@ -59,7 +60,7 @@
             android:id="@+id/textParameter3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             app:paramName="@string/side_length"
             app:paramValue="@{polygonCalculatorViewModel.sideLengthStr}" />
 
