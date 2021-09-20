@@ -18,7 +18,6 @@ import com.refrigerator2k.blueprinthelper.ktx.toPrettyString
 
 class FontCalculatorSectionController : SectionController() {
     override fun onSetup(owner: Fragment) {
-        Log.d("FontCalculatorSC", "onSetup")
         val view = owner.requireView().findViewById<LinearLayout>(R.id.fontCalculatorSection)
         val binding = FragmentFontCalculatorBinding.bind(view)
 
@@ -44,7 +43,6 @@ class FontCalculatorSectionController : SectionController() {
         viewModel.unselectedFontIndex.observe(owner.viewLifecycleOwner, {
             if (it != FontCalculatorViewModel.NO_FONT_SELECTED) {
                 (binding.chipGroup[it] as Chip).isChecked = false
-                Log.d("FontCalculatorSC", "unselect $it")
                 viewModel.deselectionHandled()
             }
         })
@@ -52,9 +50,6 @@ class FontCalculatorSectionController : SectionController() {
         viewModel.selectedFontIndex.observe(owner.viewLifecycleOwner, {
             if (it != FontCalculatorViewModel.NO_FONT_SELECTED) {
                 (binding.chipGroup[it] as Chip).isChecked = true
-                //val chip = chips[it]
-                //chip.isChecked = true
-                Log.d("FontCalculatorSC", "select $it")
             }
         })
 
