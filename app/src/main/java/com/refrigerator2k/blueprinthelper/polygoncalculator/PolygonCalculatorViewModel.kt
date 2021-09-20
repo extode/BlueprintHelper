@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.refrigerator2k.blueprinthelper.ktx.toPrettyString
 import com.refrigerator2k.blueprinthelper.round2
-import com.refrigerator2k.blueprinthelper.toPrettyString
 import kotlin.math.PI
 import kotlin.math.sin
 

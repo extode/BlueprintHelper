@@ -2,9 +2,12 @@ package com.refrigerator2k.blueprinthelper.fontcalculator
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.refrigerator2k.blueprinthelper.FontProperties
 import com.refrigerator2k.blueprinthelper.FontProvider
+import com.refrigerator2k.blueprinthelper.ktx.toPrettyString
+import com.refrigerator2k.blueprinthelper.round2
 
 class FontCalculatorViewModel : ViewModel() {
     companion object {
@@ -41,23 +44,29 @@ class FontCalculatorViewModel : ViewModel() {
     private var _fontProperties = MutableLiveData<FontProperties>()
     val fontProperties: LiveData<FontProperties> = _fontProperties
 
-    /*private var _uppercaseLetterHeight = MutableLiveData<Double>()
-    val uppercaseLetterHeight: LiveData<Double> = _uppercaseLetterHeight
+    val uppercaseHeightStr: LiveData<String> = Transformations.map(_fontProperties) {
+        double2size(it.uppercaseHeight)
+    }
 
-    private var _lowercaseLetterHeight = MutableLiveData<Double>()
-    val lowercaseLetterHeight: LiveData<Double> = _lowercaseLetterHeight
+    val lowercaseHeightStr: LiveData<String> = Transformations.map(_fontProperties) {
+        double2size(it.lowercaseHeight)
+    }
 
-    private var _letterSpacing = MutableLiveData<Double>()
-    val letterSpacing: LiveData<Double> = _letterSpacing
+    val letterSpacingStr: LiveData<String> = Transformations.map(_fontProperties) {
+        double2size(it.letterSpacing)
+    }
 
-    private var _minLineHeight = MutableLiveData<Double>()
-    val minLineHeight: LiveData<Double> = _minLineHeight
+    val minLineHeightStr: LiveData<String> = Transformations.map(_fontProperties) {
+        double2size(it.minLineHeight)
+    }
 
-    private var _minWordSpacing = MutableLiveData<Double>()
-    val minWordSpacing: LiveData<Double> = _minWordSpacing
+    val minWordSpacingStr: LiveData<String> = Transformations.map(_fontProperties) {
+        double2size(it.minWordSpacing)
+    }
 
-    private var _fontLineWeight = MutableLiveData<Double>()
-    val fontLineWeight: LiveData<Double> = _fontLineWeight*/
+    val minFontWeightStr: LiveData<String> = Transformations.map(_fontProperties) {
+        double2size(it.fontWeight)
+    }
 
     fun setFontSize(fontSizeStr: String) {
         _fontSizeStr = fontSizeStr
@@ -66,12 +75,6 @@ class FontCalculatorViewModel : ViewModel() {
         if (fontSize != null) {
             font.properties = fontCalculator.calculate(fontSize)
             _fontProperties.value = font.properties
-            /*_uppercaseLetterHeight.value = params.uppercaseHeight
-            _lowercaseLetterHeight.value = params.lowercaseHeight
-            _letterSpacing.value = params.letterSpacing
-            _minLineHeight.value = params.minLineHeight
-            _minWordSpacing.value = params.minWordSpacing
-            _fontLineWeight.value = params.fontWeight*/
         }
 
         var fontIndex = _defaultFontSizes.value!!.indexOf(fontSize)
@@ -89,5 +92,9 @@ class FontCalculatorViewModel : ViewModel() {
 
     fun deselectionHandled() {
         _unselectedFontIndex.value = NO_FONT_SELECTED
+    }
+
+    private fun double2size(value: Double): String {
+        return round2(value).toPrettyString()
     }
 }

@@ -14,6 +14,7 @@ import com.google.android.material.chip.Chip
 import com.refrigerator2k.blueprinthelper.R
 import com.refrigerator2k.blueprinthelper.SectionController
 import com.refrigerator2k.blueprinthelper.databinding.FragmentFontCalculatorBinding
+import com.refrigerator2k.blueprinthelper.ktx.toPrettyString
 
 class FontCalculatorSectionController : SectionController() {
     override fun onSetup(owner: Fragment) {
@@ -72,7 +73,7 @@ class FontCalculatorSectionController : SectionController() {
     private fun createFontChip(layoutInflater: LayoutInflater, root: ViewGroup, fontSize: Double): Chip {
         val chip = layoutInflater.inflate(R.layout.font_chip, root, false) as Chip
         chip.id = View.generateViewId()
-        chip.text = fontSize.toString()
+        chip.text = fontSize.toPrettyString()
         return chip
     }
 }

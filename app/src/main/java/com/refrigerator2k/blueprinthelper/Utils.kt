@@ -20,13 +20,5 @@ fun simpleTextWatcher(onChanged: (text: CharSequence) -> Unit) = object : TextWa
     }
 }
 
-fun Double.toPrettyString(): String {
-    val str = this.toString()
-    if (!str.endsWith(".0"))
-        return str
-
-    return str.substring(0, str.length - 2)
-}
-
 fun Context.dpToPx(dp: Float): Float = dp * resources.displayMetrics.density
 fun Float.deg2rad(): Float = PI.toFloat() / 180.0f * this
