@@ -18,8 +18,6 @@ class MarkupPreferencesSectionController : SectionController() {
         val sheetWidthText = view.findViewById<TextView>(R.id.areaWidthText)
 
         toMarkupButton.setOnClickListener {
-            (owner.activity as MainActivity).hideKeyboard()
-
             val text = lineForMarkupText.text.toString()
             val sheetWidth = sheetWidthText.text.toString().toFloatOrNull() ?: return@setOnClickListener
             owner.findNavController().navigate(

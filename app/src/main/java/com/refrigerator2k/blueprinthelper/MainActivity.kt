@@ -39,10 +39,13 @@ class MainActivity : AppCompatActivity() {
             LetterWidth.init()
             TypefaceManagerProvider.init(assets)
         }
+
+        navController.addOnDestinationChangedListener {_, _, _ ->
+            hideKeyboard()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        hideKeyboard()
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
