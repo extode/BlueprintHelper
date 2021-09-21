@@ -62,6 +62,6 @@
     <fragment
         android:id="@+id/polygonCalculatorFragment"
         android:name="com.refrigerator2k.blueprinthelper.polygoncalculator.PolygonCalculatorFragment"
-        android:label="PolygonCalculatorFragment"
+        android:label="@string/polygons"
         tools:layout="@layout/fragment_polygon_calculator" />
 </navigation>

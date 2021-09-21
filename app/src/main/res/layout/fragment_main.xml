@@ -32,7 +32,7 @@
             android:layout_margin="8dp"
             android:padding="8dp"
             app:sv_drawable="@drawable/ic_markup"
-            app:sv_title="@string/markupPreferences">
+            app:sv_title="@string/markup">
 
             <include android:id="@+id/markupPreferencesSection" layout="@layout/fragment_markup_preferences" />
 

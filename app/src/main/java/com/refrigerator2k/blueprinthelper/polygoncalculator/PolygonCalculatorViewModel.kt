@@ -57,7 +57,7 @@ class PolygonCalculatorViewModel : ViewModel() {
     }
 
     fun setAnglesCount(anglesCount: Int) {
-        if (anglesCount < 32) {
+        if (anglesCount <= 32) {
             _tooMuchVerticesErrorEvent.setValueIfChanged(false)
             _anglesCount.value = anglesCount
             calculate()
