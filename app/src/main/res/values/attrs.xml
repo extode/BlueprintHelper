@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TextParameter">
+    <declare-styleable name="ParameterView">
         <attr name="paramName" format="string" />
         <attr name="paramValue" format="string" />
     </declare-styleable>

@@ -43,7 +43,7 @@
 
         </HorizontalScrollView>
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/parameter1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             app:paramName="@string/uppercase_letter_height"
             app:paramValue="@{fontCalculatorViewModel.uppercaseHeightStr}" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/parameter2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             app:paramName="@string/lowercase_letter_height"
             app:paramValue="@{fontCalculatorViewModel.lowercaseHeightStr}" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/parameter3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             app:paramName="@string/letter_spacing"
             app:paramValue="@{fontCalculatorViewModel.letterSpacingStr}" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/parameter4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             app:paramName="@string/min_line_height"
             app:paramValue="@{fontCalculatorViewModel.minLineHeightStr}" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/parameter5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             app:paramName="@string/min_word_spacing"
             app:paramValue="@{fontCalculatorViewModel.minWordSpacingStr}" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/parameter6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

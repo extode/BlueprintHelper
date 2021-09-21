@@ -89,7 +89,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/textParameter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             app:paramName="@string/area_width"
             app:paramValue="@{markupInfoViewModel.areaWidth.toString()}" />
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/textParameter2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -56,7 +56,7 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-        <com.refrigerator2k.blueprinthelper.parameter.TextParameter
+        <com.refrigerator2k.blueprinthelper.ui.ParameterView
             android:id="@+id/textParameter3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
