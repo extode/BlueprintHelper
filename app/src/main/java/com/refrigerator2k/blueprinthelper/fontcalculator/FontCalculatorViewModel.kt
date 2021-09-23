@@ -22,21 +22,20 @@ class FontCalculatorViewModel : ViewModel() {
         get() = _fontSizeStr
 
     init {
-        _fontSizeStr = font.properties.size.toString()
+        _fontSizeStr = font.properties.size.toPrettyString()
     }
 
 
     // default fonts
-
     private val _defaultFontSizes = MutableLiveData<List<Double>>(
         listOf(1.8, 2.5, 3.5, 5.0, 7.0, 10.0, 14.0, 20.0)
     )
     val defaultFontSizes: LiveData<List<Double>> = _defaultFontSizes
 
-    private val _selectedFontIndex = MutableLiveData<Int>(-1)
+    private val _selectedFontIndex = MutableLiveData<Int>(NO_FONT_SELECTED)
     val selectedFontIndex: LiveData<Int> = _selectedFontIndex
 
-    private val _unselectedFontIndex = MutableLiveData<Int>(-1)
+    private val _unselectedFontIndex = MutableLiveData<Int>(NO_FONT_SELECTED)
     val unselectedFontIndex: LiveData<Int> = _unselectedFontIndex
 
 

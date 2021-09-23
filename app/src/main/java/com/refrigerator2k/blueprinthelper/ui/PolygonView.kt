@@ -5,12 +5,11 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import com.refrigerator2k.blueprinthelper.R
-import com.refrigerator2k.blueprinthelper.deg2rad
-import com.refrigerator2k.blueprinthelper.dpToPx
+import com.refrigerator2k.blueprinthelper.ktx.dpToPx
 import com.refrigerator2k.blueprinthelper.ktx.drawLineStrip
+import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
@@ -118,7 +117,7 @@ class PolygonView @JvmOverloads constructor(
         val cx = width / 2
         val cy = height / 2
 
-        val angle = (360.0f / _verticesCount).deg2rad()
+        val angle = PI.toFloat() * 2.0f / _verticesCount
         for (i in 0 until _verticesCount + 1) {
             val x = cos(angle * i) * radius + cx
             val y = sin(angle * i) * radius + cy
